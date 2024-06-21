@@ -13,7 +13,9 @@ The **League of Legends Orbwalker** is a tool designed to enhance your gameplay 
 ## Features
 
 - **Precise Orbwalking**: Handles attack and move commands with minimal delay.
-- **Customizable Settings**: Allows configuration of attack and movement behaviors.
+- **Combos**: Automatically do the best combo.
+
+
 - **Automatic Updates**: Receives updates to improve performance and add new features.
 - **Lightweight and Efficient**: Minimal impact on game performance.
 
