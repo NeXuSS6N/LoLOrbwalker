@@ -35,11 +35,25 @@ namespace LeagueSharpScript.Combos
                 _player.Spellbook.GetSpell(SpellSlot.E).IsReady() &&
                 _player.Spellbook.GetSpell(SpellSlot.R).IsReady())
             {
-                // Cast the combo
-                CastQ(target);
-                Utility.DelayAction.Add(100, () => CastW(target));
-                Utility.DelayAction.Add(200, () => CastE(target));
-                Utility.DelayAction.Add(300, () => CastR(target));
+                // Check if target is in range for each spell, adjust ranges as needed
+                if (_player.Distance(target) <= _player.Spellbook.GetSpell(SpellSlot.Q).SData.CastRange)
+                {
+                    CastQ(target);
+                }
+
+                // Adjust range checks for other spells (W, E, R) similarly
+                if (_player.Distance(target) <= _player.Spellbook.GetSpell(SpellSlot.W).SData.CastRange)
+                {
+                    Utility.DelayAction.Add(100, () => CastW(target));
+                }
+                if (_player.Distance(target) <= _player.Spellbook.GetSpell(SpellSlot.E).SData.CastRange)
+                {
+                    Utility.DelayAction.Add(200, () => CastE(target));
+                }
+                if (_player.Distance(target) <= _player.Spellbook.GetSpell(SpellSlot.R).SData.CastRange)
+                {
+                    Utility.DelayAction.Add(300, () => CastR(target));
+                }
             }
         }
 
