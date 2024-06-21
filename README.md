@@ -8,7 +8,7 @@ A customizable and efficient Orbwalker for League of Legends, allowing precise c
 
 The **League of Legends Orbwalker** is a tool designed to enhance your gameplay by optimizing attack and movement sequences. This Orbwalker helps with last hitting, trading, and kiting efficiently, giving you an edge in your games.
 
-![Screenshot](docs/screenshot.png)
+![Screenshot](https://imgur.com/a/Waxmx7U)
 
 ## Features
 
