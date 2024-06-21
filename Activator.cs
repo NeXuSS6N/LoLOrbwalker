@@ -17,42 +17,36 @@ namespace LeagueSharpScript.Activator
         {
             if (!ScriptSettings.Activator) return;
 
-            // Get the target
+            // Obtenir la cible
             var target = TargetSelector.GetTarget();
 
-            // Check if the target is valid
+            // Check si la cible est valide
             if (!target.IsValidTarget()) return;
 
-            // Use summoner spells
             UseSummonerSpells(target);
         }
 
         private void UseSummonerSpells(Obj_AI_Hero target)
         {
-            // Use the following summoner spells:
-            // - Smite
-            // - Exhaust
-            // - Heal
-            // - Barrier
 
             if (_player.Spellbook.CanUseSpell(SpellSlot.Summoner1) && _player.Spellbook.GetSpell(SpellSlot.Summoner1).Name == "SummonerSmite")
             {
-                // Use Smite
+                //Smite
                 _player.Spellbook.CastSpell(SpellSlot.Summoner1, target);
             }
             else if (_player.Spellbook.CanUseSpell(SpellSlot.Summoner2) && _player.Spellbook.GetSpell(SpellSlot.Summoner2).Name == "SummonerExhaust")
             {
-                // Use Exhaust
+                //Exhaust
                 _player.Spellbook.CastSpell(SpellSlot.Summoner2, target);
             }
             else if (_player.Spellbook.CanUseSpell(SpellSlot.Summoner1) && _player.Spellbook.GetSpell(SpellSlot.Summoner1).Name == "SummonerHeal")
             {
-                // Use Heal
+                //Heal
                 _player.Spellbook.CastSpell(SpellSlot.Summoner1);
             }
             else if (_player.Spellbook.CanUseSpell(SpellSlot.Summoner2) && _player.Spellbook.GetSpell(SpellSlot.Summoner2).Name == "SummonerBarrier")
             {
-                // Use Barrier
+                //Barrier
                 _player.Spellbook.CastSpell(SpellSlot.Summoner2);
             }
         }

@@ -10,10 +10,8 @@ namespace LeagueSharpScript
     {
         public static void Main()
         {
-            // Initialize the script
             Initialize();
 
-            // Create instances of the features
             Evade evade = new Evade();
             Prediction prediction = new Prediction();
             Orbwalker orbwalker = new Orbwalker();
@@ -21,17 +19,16 @@ namespace LeagueSharpScript
             Combos combos = new Combos();
             Activator activator = new Activator();
 
-            // Add event handlers
+            //event handlers
             Game.OnUpdate += OnUpdate;
             Game.OnWndProc += OnWndProc;
 
-            // Create the in-game interface
             CreateInterface();
         }
 
         private static void Initialize()
         {
-            // Initialize the script settings
+            // Scripts settings
             ScriptSettings settings = new ScriptSettings();
             settings.AddBool("Evade", "Evade", true);
             settings.AddBool("Prediction", "Prediction", true);
@@ -43,7 +40,6 @@ namespace LeagueSharpScript
 
         private static void OnUpdate(EventArgs args)
         {
-            // Update the features
             evade.Update();
             prediction.Update();
             orbwalker.Update();
@@ -73,7 +69,7 @@ namespace LeagueSharpScript
 
         private static void CreateInterface()
         {
-            // Create the in-game interface using the LeagueSharp.Common library
+            // Ingame menu avec LeagueSharp
             Menu menu = new Menu("LeagueSharp Script", "LeagueSharp Script", true);
 
             // Add menu items for each feature
@@ -84,7 +80,6 @@ namespace LeagueSharpScript
             menu.AddItem(new MenuItem("Combos", "Combos").SetValue(ScriptSettings.Combos));
             menu.AddItem(new MenuItem("Activator", "Activator").SetValue(ScriptSettings.Activator));
 
-            // Add the menu to the game
             menu.AddToMainMenu();
         }
     }

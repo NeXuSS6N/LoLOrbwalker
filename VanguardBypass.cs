@@ -11,35 +11,35 @@ namespace LeagueSharpScript.VanguardBypass
 
         public VanguardBypass()
         {
-            // Get the Vanguard module and function pointers
+            // Obtenir le module et les pointeurs de fonction Vanguard
             _vanguardModule = GetModuleAddress("Vanguard.dll");
             _vanguardFunction = GetProcAddress(_vanguardModule, "VanguardFunction");
 
-            // Hook the Vanguard function to bypass it
+            // hook la fonction Vanguard pour la contourner
             Hook(_vanguardFunction, BypassVanguard);
         }
 
         private IntPtr GetModuleAddress(string moduleName)
         {
-            // Get the module address using Windows API
+            // Obtenir l'adresse du module en utilisant l'API Windows
             return GetModuleHandle(moduleName);
         }
 
         private IntPtr GetProcAddress(IntPtr module, string functionName)
         {
-            // Get the function address using Windows API
+            // Obtenir l'adresse de la fonction en utilisant l'API Windows
             return GetProcAddress(module, functionName);
         }
 
         private void Hook(IntPtr function, Delegate callback)
         {
-            // Hook the function using a detour
+            // hook la fonction en utilisant un detour
             DetourAttach(function, callback);
         }
 
         private void BypassVanguard(IntPtr args)
         {
-            // Bypass Vanguard by returning a fake result
+            // Contourner Vanguard en renvoyant un résultat factice
             return 0;
         }
     }

@@ -17,31 +17,28 @@ namespace LeagueSharpScript.Combos
         {
             if (!ScriptSettings.Combos) return;
 
-            // Implement combo logic here
             var target = TargetSelector.GetTarget();
 
             if (target.IsValidTarget())
             {
-                // Cast spells and abilities in a combo
                 CastCombo(target);
             }
         }
 
         private void CastCombo(Obj_AI_Hero target)
         {
-            // Check if the player has the necessary spells and abilities
             if (_player.Spellbook.GetSpell(SpellSlot.Q).IsReady() &&
                 _player.Spellbook.GetSpell(SpellSlot.W).IsReady() &&
                 _player.Spellbook.GetSpell(SpellSlot.E).IsReady() &&
                 _player.Spellbook.GetSpell(SpellSlot.R).IsReady())
             {
-                // Check if target is in range for each spell, adjust ranges as needed
+                // Check si la cible est a range de spell
                 if (_player.Distance(target) <= _player.Spellbook.GetSpell(SpellSlot.Q).SData.CastRange)
                 {
                     CastQ(target);
                 }
 
-                // Adjust range checks for other spells (W, E, R) similarly
+                // Ajuste la range
                 if (_player.Distance(target) <= _player.Spellbook.GetSpell(SpellSlot.W).SData.CastRange)
                 {
                     Utility.DelayAction.Add(100, () => CastW(target));
