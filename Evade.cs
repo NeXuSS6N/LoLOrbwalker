@@ -92,7 +92,7 @@ namespace LeagueSharpScript.Evade
         }
 
         private Vector3 FindSafePosition(Skillshot skillshot)
-        {
+        { 
             // trouve une position safe avec navmesh
             var navMesh = NavMesh.GetNavMesh();
             var safePosition = navMesh.GetClosestPath(_player.ServerPosition, skillshot.EndPosition, 100);
